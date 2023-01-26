@@ -1,0 +1,22 @@
+on:
+  schedule:
+    - cron: 0 0/4 * * *
+  workflow_dispatch: {}
+
+name: Run
+jobs:
+  run:
+    name: Scheduled Update
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm ci
+      - run: npm run start
+        env:
+          YNAB_API_KEY: '${{ secrets.YNAB_API_KEY }}'
+          YNAB_BUDGET_ID: '${{ secrets.YNAB_BUDGET_ID }}'
+  
