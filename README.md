@@ -39,7 +39,7 @@ following content:
 
 ```
 # Specify your list of stock tickers and the number of shares held for each ticker.
-/automate:stock MSFT=100, AAPL=100, GOOG=100
+/automate:stocks MSFT=100, AAPL=100, GOOG=100
 ```
 
 *Note: You can change the list of stock tickers and the number of shares held for each ticker.*
